@@ -1,0 +1,30 @@
+.timeline-container{
+  width: 100%;
+}
+#timeline-inner {
+  & svg {
+    top: 20px;
+  }
+  &.show svg {
+    opacity: 1;
+    transition: 1s;
+  }
+  & path {
+    fill: none;
+    stroke-width: 2.5;
+    opacity: .8;
+    transition: .25s;
+    &:hover {
+      stroke-width: 5;
+      opacity: 1;
+    }
+  }
+  & .axis {
+    & path,
+    & line {
+      fill: none;
+      stroke: grey;
+      stroke-width: 1;
+    }
+  }
+}
