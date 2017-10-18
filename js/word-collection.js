@@ -69,7 +69,6 @@ function wordCollectionAddNewsNum(media, num) {
 }
 
 function wordCollectionAddProvocativeNum(media, num) {
-  console.log(num)
   $('#word-collection .' + media + '-container .provative-num').remove()
   var style = num > 10 ? 'color:coral' : 'opacity:0.6' 
   var selector = '#word-collection .' + media + '-container h3';

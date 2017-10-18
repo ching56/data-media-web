@@ -8,14 +8,7 @@ $('#logo').addClass('loading');
 $('#logo').addClass('small');
 $('#help').hide()
 var IsReportGot = false;
-$("#logo").one('animationiteration webkitAnimationIteration', function() {
-  if (IsReportGot) {
-    $("#logo").removeClass('loading');
-    setTimeout(function() {
-      $('#logo').removeClass('small');
-    }, 10)
-  }
-});
+
 var now = moment.now();
 var tz = moment.tz(now, 'Asia/Taipei')
 var weekNum = tz.format('W')
@@ -27,6 +20,14 @@ $.getJSON(objectUrl, function (t) {
   IsReportGot = true;
   var totoalNews = 0;
   var DELAY = 100;
+
+  $("#logo").one('animationiteration webkitAnimationIteration', function () {
+    console.log('report loaded')
+    $("#logo").removeClass('loading');
+    setTimeout(function () {
+      $('#logo').removeClass('small');
+    }, 10)
+  });
 
   for (var i in media) {
     totoalNews += report[media[i]].news_count;
@@ -44,11 +45,11 @@ $.getJSON(objectUrl, function (t) {
     window.createNewsBarChart('#num-news-bar', barData);
   }, DELAY);
 
-  var categoryData = {}
-  media.forEach(function(d) {
-    categoryData[d] = report[d]
-  })
-  window.createCategory(categoryData);
+  // var categoryData = {}
+  // media.forEach(function(d) {
+  //   categoryData[d] = report[d]
+  // })
+  // window.createCategory(categoryData);
 
   var myWordCloud = wordCloud('div.cloud');
   window.showNewWords(myWordCloud);
@@ -104,7 +105,7 @@ $('.menu').on('click', function() {
   }
 });
 
-$.get('src/provocative_words.txt', function (data) {
+$.get('dist/provocative_words.txt', function (data) {
   provocative_list = data.split('\n')
 })
 

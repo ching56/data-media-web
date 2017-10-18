@@ -45,7 +45,6 @@ function createTimeline(selector, data) {
     if (!(formated_date instanceof Date))
       formated_date = parseTime(i.time);
     if (!(formated_date instanceof Date)){
-      console.log(i,formated_date)
       formated_date = parseTime_slash(i.time);
     }
       
@@ -53,7 +52,6 @@ function createTimeline(selector, data) {
     return i;
   })
 
-  console.log(data)
   data.sort(sortByDateAscending);
   // Define the line
   var line = d3.svg.line()
@@ -102,7 +100,6 @@ function createTimeline(selector, data) {
           return mediaColor[d.key];
         })
         .transition(1000);
-      console.log(d)
       if(d.values[i].time.getTime() == x.domain()[1].getTime()){
         lastIndex =+ i;
       }

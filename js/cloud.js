@@ -63,8 +63,8 @@ function wordCloud(selector) {
       var word_data = report.words_count[d.index][2]
       var news_amount = word_data.length
       //find the media has greatest words_appear_ratio
-      dict = {};
-      for (i in mediaEN) {
+      var dict = {};
+      for (var i in mediaEN) {
         dict[mediaEN[i]] = {};
         dict[mediaEN[i]].count = 0;
         dict[mediaEN[i]].provocativeNum = 0;
@@ -162,9 +162,9 @@ function wordCloud(selector) {
 
 
 function showNewWords(vis, i) {
-  max = report.words_count[0][1];
-  scale = max / 100;
-  cloudConfig = report.words_count.map(function (obj, index) {
+  var max = report.words_count[0][1];
+  var scale = max / 100;
+  var cloudConfig = report.words_count.map(function (obj, index) {
     return {
       text: obj[0],
       size: (10 + obj[1] / scale),
@@ -182,8 +182,8 @@ function clickCloud(d){
   createTimeline('#timeline-inner', report.words_count[d.index][3]);
 
   window.wordCollectionClearCards();
-  news = report.words_count[d.index][2];
-  dict = {};
+  var news = report.words_count[d.index][2];
+  var dict = {};
   for (i in mediaEN) {
     dict[mediaEN[i]] = {};
     dict[mediaEN[i]].count = 0;
