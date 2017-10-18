@@ -17,7 +17,7 @@ function ShowWordCollectionInModal(event) {
         break;
       }
     }
-    news = report.words_count[IndexOfWord][2];
+    var news = report.words_count[IndexOfWord][2];
 
     for (var i = 0; i < news.length; i++) {
       var news_media = news[i].media
