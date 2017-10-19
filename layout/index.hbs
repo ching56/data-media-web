@@ -68,18 +68,16 @@
       <section class="band">
         <div class="band-container">
           <div class="band-inner">
-            <div><h1>媒體用詞雲</h1>
-            <h2>各媒體新聞用詞的文字雲，以位置表達各個媒體的常用詞</h2></div> {{> cloud}}
-          </div>
-        </div>
-      </section>
-      <section class="band">
-        <div class="band-container">
-          <div class="band-inner">
-            <div><h1>詞彙新聞集</h1>
-            <h2>單一詞彙於各家媒體的出現新聞集</h2></div> 
-            <h2 id="qurey-word"></h2>
-            {{> timeline}}{{> wordCollection}}
+            <div><h1>媒體用詞雲</h1><h2 id="qurey-word"></h2>
+            <h2>各媒體新聞用詞的文字雲，以位置表達各個媒體的常用詞</h2></div> 
+            <div class="advance-section-container">
+              <div class="cloud-timeline-container">
+                {{> cloud}} {{> timeline}}
+              </div>
+              <div class="wordCollection-container">
+                 {{> wordCollection}}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -110,5 +108,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data.min.js" integrity="sha256-Mbm+oB/+8ujzEer9u83ZRKEhlPohbY9USJ4VpxiNR9w="
   crossorigin="anonymous"></script>
 <script type="text/javascript" src="./dist/js/all.js"></script>
-{{!-- <script defer='true' async='true' src='https://pol.is/embed.js'></script> --}}
+<script defer='true' async='true' src='https://pol.is/embed.js'></script>
 </html>

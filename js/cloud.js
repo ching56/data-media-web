@@ -21,23 +21,17 @@ function convertRem(value) {
 function wordCloud(selector) {
 
   var fill = d3.scale.category20();
-  var nav_width = 240;
-  var width;
-  var marginCloud = 80;
-
-  if ($(window).width() > smallDesktopWidthSize) {
-    width = $(window).width() - (nav_width + 2 * marginCloud);
-  } else {
-    width = $(window).width() - 2 * marginCloud;
-  }
-
+  var width = $('.cloud').width();
+  var height = $(window).height() * 3 / 5
   width = width > 1600 ? 1600 : width;
+  height = height > 680 ? 680 : height
+
   //Construct the word cloud's SVG element
   var svg = d3.select(selector).append('svg')
     .attr('width', width)
-    .attr('height', 500)
+    .attr('height', height)
     .append('g')
-    .attr('transform', 'translate(' + width / 2 + ',250)');
+    .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
 
   //Draw the word cloud
@@ -144,9 +138,9 @@ function wordCloud(selector) {
     // of the wordCloud return value.
     update: function (words) {
       d3.layout.cloud()
-        .size([width, 500])
+        .size([width, height])
         .words(words)
-        .padding(2)
+        .padding(3)
         .rotate(function () {
           return Math.random() * 90 - 45;
         })
@@ -176,7 +170,7 @@ function showNewWords(vis, i) {
 
 function clickCloud(d){
   // add word collection
-  var NUM_OF_SHOWED_NEWS = 6
+  var NUM_OF_SHOWED_NEWS = 2
   var nonProvocativeNewses = []
 
   createTimeline('#timeline-inner', report.words_count[d.index][3]);

@@ -2,25 +2,23 @@ function createTimeline(selector, data) {
 
   var margin = {
     top: 40,
-    right: 120,
-    bottom: 40,
-    left: 120
+    right: 100,
+    bottom: 32,
+    left: 60
   };
 
-  var nav_width = 240;
-  var width;
-  var marginTimeline = 80;
+  var width = $('.timeline-container').width()
+  var height = $(window).height() / 5
 
-  width = $(window).width() > 1600 ? 1600: $(window).width()
-
+  height = height < 200 ? 200 : height
 
   $(selector).empty();
   var svg = d3.select(selector).append('svg')
     .attr('width', width)
-    .attr('height', 200);
+    .attr('height', height);
 
-  var width = +svg.attr('width') - margin.left - margin.right,
-    height = +svg.attr('height') - margin.top - margin.bottom;
+  width = +svg.attr('width') - margin.left - margin.right,
+  height = +svg.attr('height') - margin.top - margin.bottom;
 
   var g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
