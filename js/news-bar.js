@@ -63,17 +63,11 @@ function createNewsBarChart(selector, data) {
 
   var xAxisTickTransform = ''
   var tipSize = ''
-<<<<<<< HEAD
   var textAnchor = 'middle'
   if (barWidth < 600) {
     xAxisTickTransform += 'rotate(45)'
     tipSize = '0.7rem'
     textAnchor = 'start'
-=======
-  if (barWidth < 600) {
-    xAxisTickTransform += 'rotate(45)'
-    tipSize = '0.7rem'
->>>>>>> fbc421e4435848d6c77f51937004829242449ca7
   }
 
   bars.append('text').text(function(d) {
@@ -96,11 +90,7 @@ function createNewsBarChart(selector, data) {
     .attr('transform', 'translate(0,' + (barHeight + tickPad) + ')')
     .call(xAxis)
     .selectAll('text')
-<<<<<<< HEAD
     .style("text-anchor", textAnchor)
-=======
-    .style("text-anchor", "start")
->>>>>>> fbc421e4435848d6c77f51937004829242449ca7
     .attr('transform', xAxisTickTransform)
     .attr('font-size', tipSize);;
 

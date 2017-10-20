@@ -6,6 +6,7 @@ function initWordAnalysis(data) {
     html.append(getWordAnalysisOutlinerList(data['outliner'][media[m]]))
     $('.horizontal-lists').append(html)
   }
+  $('.horizontal-lists').append('<div style="visibility: hidden"><h5>placeholder</h5><div>')
 }
 
 function getWordAnalysisProvocativeList(data){

@@ -25,6 +25,7 @@ function initBuzzword(data) {
     appendBuzzwordProvocativeList(i, b['provocativeRate'])
     appendBuzzwordOutlinerList(i, b['isOutline'])
   })
+  $('.buzzwords .outer').append('<div class="buzzword-container"><h5>placeholder</h5></div>')
 }
 
 function appendBuzzwordProvocativeList(index, provo_data){
