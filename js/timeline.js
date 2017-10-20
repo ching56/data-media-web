@@ -1,7 +1,7 @@
 function createTimeline(selector, data) {
 
   var margin = {
-    top: 40,
+    top: 30,
     right: 100,
     bottom: 32,
     left: 60
@@ -10,7 +10,7 @@ function createTimeline(selector, data) {
   var width = $('.timeline-container').width()
   var height = $(window).height() / 5
 
-  height = height < 200 ? 200 : height
+  height = height < 140 ? 140 : height
 
   $(selector).empty();
   var svg = d3.select(selector).append('svg')
@@ -33,7 +33,12 @@ function createTimeline(selector, data) {
     .orient('bottom').ticks(7);
 
   var yAxis = d3.svg.axis().scale(y)
-    .orient('left').ticks(5);
+    .orient('left').ticks(3);
+
+  if( width < 980){
+    xAxis.ticks(2)
+    yAxis.ticks(2)
+  }
 
   var parseTime = d3.time.format("%Y-%m-%d").parse;
   var parseTime_slash = d3.time.format("%Y/%m/%d").parse;

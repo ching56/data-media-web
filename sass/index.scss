@@ -338,6 +338,7 @@ body {
         margin: 0;
         padding: 0 0 10px;
         display: inline-block;
+        z-index: 1;
     }
     & h1 {
         font-size: 32px;
@@ -498,19 +499,6 @@ body {
     letter-spacing: 0.5px;
     line-height: 2rem;
     background: #f5f5f5;
-}
-
-.cloud-timeline-container {
-    width: 70%;
-}
-
-.wordCollection-container {
-    width: 30%;
-}
-
-.advance-section-container {
-    width: 100%;
-    display: flex;
 }
 
 @media screen and (max-width: $break-medium) {

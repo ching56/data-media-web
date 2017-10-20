@@ -1,13 +1,15 @@
+$break-medium: 980px;
 .buzzwords {
-  padding: 36px;
+    padding: 36px;
 }
+
 .buzzword-container {
     border-radius: 20px;
     box-shadow: 0 0 2px rgba(0, 0, 0, .1), 1px 1px 6px rgba(0, 0, 0, .2), -2px -1px 5px 0px rgba(0, 0, 0, .1) inset;
     opacity: 0.5;
     transition: 0.5s;
     &.active {
-      opacity: 1;
+        opacity: 1;
     }
 }
 
@@ -49,6 +51,14 @@
         justify-content: space-between;
         >span {
             padding: 8px 16px;
+            word-break: keep-all;
         }
+    }
+}
+
+@media screen and (max-width: $break-medium) {
+    .two-column-list ul {
+        margin: 12px;
+        font-size: 0.5rem;
     }
 }

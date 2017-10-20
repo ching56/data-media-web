@@ -51,7 +51,7 @@ function refreshCards() {
 function wordCollectionAddNewsCard(media, header, detail, link, isProvocative) {
   var selector = '#word-collection .' + media + '-container .cards';
   var style = isProvocative ? 'background-color:#ffc7b3' : ''
-  var content = '<a target="_blank" class="card" style =' + style + ' href="' +
+  var content = '<a target="_blank" class="card" style="' + style + '" href="' +
     link + '"><h5>' + header + '</h5><div class="detail">' +
     detail + '</div></a>';
   $(selector).append(content);
