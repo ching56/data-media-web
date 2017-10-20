@@ -1,14 +1,24 @@
+<<<<<<< HEAD
 $break-medium: 980px;
+=======
+>>>>>>> fbc421e4435848d6c77f51937004829242449ca7
 #qurey-word {
     border-radius: 5px;
     border: 1px #333 solid;
     padding: 4px 16px;
+<<<<<<< HEAD
     margin: 0 12px;
+=======
+>>>>>>> fbc421e4435848d6c77f51937004829242449ca7
     box-shadow: 0 0 2px rgba(0, 0, 0, .1), 1px 1px 6px rgba(0, 0, 0, .2), -2px -1px 5px 0px rgba(0, 0, 0, .1) inset;
 }
 
 .card-container {
     position: relative;
+<<<<<<< HEAD
+=======
+    overflow: auto;
+>>>>>>> fbc421e4435848d6c77f51937004829242449ca7
     padding: 5px;
     color: #393939;
     display: flex;
@@ -27,6 +37,7 @@ $break-medium: 980px;
         }
         opacity: 1;
         top: 0;
+<<<<<<< HEAD
     }
     .list {
         background-color: #f9f9f9;
@@ -124,5 +135,74 @@ $break-medium: 980px;
     .cloud-timeline-container,
     .wordCollection-container {
         width: 100%;
+=======
+    }
+    .list {
+        background-color: #f9f9f9;
+        border-radius: 3px;
+        margin: 8px;
+        padding: 10px;
+        & .cards {
+            display: flex;
+            align-items: center;
+        }
+        & .card {
+            transition: all 1s, background-color 0.01s 0s;
+            border-radius: 3px;
+            margin-top: 8px;
+            background-color: #FFF;
+            border-bottom: 1px solid #CCC;
+            margin: 0 4px;
+            letter-spacing: 1.25px;
+            display: block;
+            text-decoration: none;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .1), 1px 1px 6px rgba(0, 0, 0, .2), -2px -1px 5px 0 rgba(0, 0, 0, .1) inset;
+            & h5,
+            & .detail {
+                font-weight: 500;
+                margin: 8px;
+                transition: 1s;
+                transition-delay: .2s;
+            }
+            & .detail {
+                font-size: 12px;
+                color: #939393;
+            }
+            &:hover {
+                background-color: #F0F0F0;
+            }
+        }
+        >h3 {
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+            transition: 0.2s;
+            transform-origin: left;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        >h5 {
+            display: inline-block;
+            margin: 0px 12px;
+        }
+        &.no-card {
+            background: #f5f5f5;
+            color: #c9c9c9;
+            & h3 {
+                font-weight: 100;
+            }
+        }
+        .remaining-news-num {
+            margin: 0px;
+            padding: 12px 12px 0;
+            opacity: 0.4;
+            transition: 0.2s;
+            cursor: pointer;
+            &:hover {
+                transform: scale(1.1);
+                opacity: 0.6;
+            }
+        }
+>>>>>>> fbc421e4435848d6c77f51937004829242449ca7
     }
 }

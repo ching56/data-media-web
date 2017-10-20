@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $break-medium: 980px;
 .buzzwords {
     position: relative;
@@ -44,7 +45,6 @@ $break-medium: 980px;
     letter-spacing: 3px;
     font-weight: 900;
 }
-
 .two-column-list {
     display: flex;
     justify-content: center;
@@ -81,5 +81,28 @@ $break-medium: 980px;
     .two-column-list ul {
         margin: 12px;
         font-size: 0.5rem;
+    }
+    ul {
+        padding: 0;
+        margin: 32px;
+    }
+    li {
+        &.hightlight {
+            opacity: 1;
+            >.provocative-num,
+            >.news-num {
+                color: red;
+            }
+        }
+        list-style-type: none;
+        text-align: left;
+        margin: 0;
+        padding: 0 12px;
+        opacity: 0.75;
+        display: flex;
+        justify-content: space-between;
+        >span {
+            padding: 8px 16px;
+        }
     }
 }

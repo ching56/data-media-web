@@ -3,7 +3,10 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     align-self: baseline;
+<<<<<<< HEAD
     width: 100%;
+=======
+>>>>>>> fbc421e4435848d6c77f51937004829242449ca7
     >div {
         flex: 0 0 auto;
         padding: 8px 32px;
@@ -13,7 +16,10 @@
     }
     &:before {
         content: '';
+<<<<<<< HEAD
         z-index: 0;
+=======
+>>>>>>> fbc421e4435848d6c77f51937004829242449ca7
         width: 48px;
         height: 100%;
         position: absolute;
@@ -23,7 +29,10 @@
     }
     &:after {
         content: '';
+<<<<<<< HEAD
         z-index: 0;
+=======
+>>>>>>> fbc421e4435848d6c77f51937004829242449ca7
         width: 48px;
         height: 100%;
         position: absolute;

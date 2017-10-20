@@ -24,7 +24,11 @@ function wordCloud(selector) {
   var width = $('.cloud').width();
   var height = $(window).height() * 3 / 5
   width = width > 1600 ? 1600 : width;
+<<<<<<< HEAD
   height = height > 700 ? 700 : height
+=======
+  height = height > 680 ? 680 : height
+>>>>>>> fbc421e4435848d6c77f51937004829242449ca7
 
   //Construct the word cloud's SVG element
   var svg = d3.select(selector).append('svg')
