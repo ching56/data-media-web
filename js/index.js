@@ -14,6 +14,7 @@ var tz = moment.tz(now, 'Asia/Taipei')
 var weekNum = tz.format('W')
 var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
 var objectUrl = s3Url + 'week_' + weekNum + '.json'
+objectUrl = 'week_42.json'
 
 $.getJSON(objectUrl, function (t) {
   report = t;
@@ -131,7 +132,7 @@ $('body').on('scroll', function(event) {
     var content = title + `<hr><strong>情緒性報導排行</strong>統計 6 家媒體本週情緒性報導比率的前五名，例如：「台灣  50%」，代表這家媒體所有標題含有「台灣」的報導，標題有 50% 含有情緒性用詞。</p>
 <hr><strong>少量報導主題</strong>分析同一詞語在 6 家媒體中，如果這家媒體對於這個詞語的關注度較低，即為少量報導主題。</p>`
     $('#help .content').html(content)
-  } else if (isPosBeyondIdTop(pos, '#buzzword')) {
+  } else if (isPosBeyondIdTop(pos, '.buzzwords')) {
     var title = '<h4>本週熱詞</h4>'
     var list_html = provocative_list.map(function(w){
       return '<li>' + w + '</li>'

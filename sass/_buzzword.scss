@@ -1,17 +1,38 @@
 $break-medium: 980px;
 .buzzwords {
-    position: relative;
-    overflow: auto;
     width: 100%;
+    &:before {
+        content: '';
+        z-index: 1;
+        width: 48px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+    }
+    &:after {
+        content: '';
+        z-index: 1;
+        width: 48px;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+    }
 }
 
 .outer {
     display: flex;
     padding: 48px 0;
     width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
 
 .buzzword-container {
+    flex: 0 0 auto;
     border-radius: 20px;
     box-shadow: 0 0 2px rgba(0, 0, 0, .1), 1px 1px 6px rgba(0, 0, 0, .2), -2px -1px 5px 0px rgba(0, 0, 0, .1) inset;
     opacity: 0;
@@ -38,6 +59,7 @@ $break-medium: 980px;
     letter-spacing: 3px;
     font-weight: 900;
 }
+
 .two-column-list {
     display: flex;
     justify-content: center;
