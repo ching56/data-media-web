@@ -14,6 +14,8 @@ var tz = moment.tz(now, 'Asia/Taipei')
 var weekNum = tz.format('W')
 var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
 var objectUrl = s3Url + 'week_' + weekNum + '.json'
+// debug
+objectUrl = 'week_42.json'
 
 $.getJSON(objectUrl, function (t) {
   report = t;
@@ -67,7 +69,7 @@ $.getJSON(objectUrl, function (t) {
   initWordAnalysis(t['word_analysis'])
   initDate(t['time'])
   initAbout()
-  var buzzword = d3.selectAll('text').filter(function (d, i) { return d.text === t['buzzword']['word'] })
+  var buzzword = d3.selectAll('text').filter(function (d, i) { return d.text === t['words_count'][0][0] })
   $(buzzword[0]).d3Click()
 
   $('#help').show('slow')
