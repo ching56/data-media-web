@@ -1,17 +1,21 @@
+$('.page-container').hide()
+
 var report;
 var provocative_list = []
 initLengend();
 initWordCollection();
 window.refreshCards();
-// $('.page-container').css('display', 'none');
 $('#logo').addClass('loading');
 $('#logo').addClass('small');
 $('#help').hide()
+
+
 var IsReportGot = false;
 
 var now = moment.now();
 var tz = moment.tz(now, 'Asia/Taipei')
 var weekNum = tz.format('W')
+
 var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
 var objectUrl = s3Url + 'week_' + weekNum + '.json'
 objectUrl = 'week_42.json'
@@ -21,6 +25,9 @@ $.getJSON(objectUrl, function (t) {
   IsReportGot = true;
   var totoalNews = 0;
   var DELAY = 100;
+
+  $('.loader').fadeOut('slow')
+  $('.page-container').show()
 
   $("#logo").one('animationiteration webkitAnimationIteration', function () {
     console.log('report loaded')
@@ -254,8 +261,8 @@ function animateToId(id) {
 }
 
 function initDate(dateData){
-  var begin = dateData.begin.replace('-', '.').slice(5)
-  var end = dateData.end.replace('-', '.').slice(5)
-  var html = begin + '~' + end
+  var begin = dateData.begin.replace('-', '/').slice(5)
+  var end = dateData.end.replace('-', '/').slice(5)
+  var html = begin + ' ~ ' + end
   $('.nav-time').html(html)
 }
