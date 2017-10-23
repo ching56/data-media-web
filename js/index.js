@@ -80,10 +80,11 @@ $.getJSON(objectUrl, function (t) {
   $(buzzword[0]).d3Click()
 
   $('#help').show('slow')
-  $('#help .fa-question').hide()
+  $('#help .fa-angle-up').hide()
+  $('#help .content').hide()
   $('#help').on('click', function(){
     $('#help .content').toggle('slow')
-    $('#help .fa-angle-down').toggle('slow')
+    $('#help .fa-angle-up').toggle('slow')
     $('#help .fa-question').toggle('slow')
   })
 
