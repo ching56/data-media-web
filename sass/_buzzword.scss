@@ -21,14 +21,13 @@ $break-medium: 980px;
         top: 0;
         background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
     }
-}
-
-.outer {
-    display: flex;
-    padding: 48px 0;
-    width: 100%;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    .outer {
+        display: flex;
+        padding: 48px 0;
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
 }
 
 .buzzword-container {
@@ -94,13 +93,16 @@ $break-medium: 980px;
 
 @media screen and (max-width: $break-medium) {
     .buzzwords {
+        .buzzword-container {
+            left: initial;
+            transform: initial;
+        }
         .two-column-list ul {
-            margin: 12px;
-            font-size: 0.5rem;
+            margin: 0 0 12px 0;
+            font-size: .75rem;
         }
         ul {
             padding: 0;
-            margin: 32px;
         }
         li {
             &.hightlight {
@@ -118,8 +120,14 @@ $break-medium: 980px;
             display: flex;
             justify-content: space-between;
             >span {
-                padding: 8px 16px;
+                padding: 8px 8px;
             }
+        }
+        &:before {
+            width: 24px;
+        }
+        &:after {
+            width: 24px;
         }
     }
 }

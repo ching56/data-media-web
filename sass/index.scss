@@ -498,6 +498,7 @@ body {
         font-weight: 700;
         border-bottom: 2px solid #EFEFEF;
         transition: 0.2s;
+        position: relative;
         &:hover {
             cursor: pointer;
             color: #BBBB00;
@@ -515,6 +516,9 @@ body {
 }
 
 @media screen and (max-width: $break-medium) {
+    .data-desc {
+        flex-direction: column;
+    }
     .container.is-open {
         overflow: hidden;
     }
@@ -546,5 +550,8 @@ body {
         .content ol {
             height: initial;
         }
+    }
+    #modal-container.show #pop-content .card {
+        min-width: initial; 
     }
 }
