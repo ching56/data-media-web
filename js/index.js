@@ -9,6 +9,22 @@ var mediaColor = {
   '聯合報': '#FF7043',
   '中國時報': '#03A9F4'
 };
+var report;
+var provocative_list = []
+var IsReportGot = false;
+
+var now = moment.now();
+var tz = moment.tz(now, 'Asia/Taipei').subtract(1, 'days')
+var weekNum = tz.format('W')
+
+var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
+var objectUrl = s3Url + 'week_' + weekNum + '.json'
+
+$('.page-container').hide()
+window.refreshCards();
+$('#logo').addClass('loading');
+$('#logo').addClass('small');
+$('#help').hide()
 
 function mediaNameTranslate(mediaName) {
   var dict = {
@@ -28,96 +44,98 @@ function mediaNameTranslate(mediaName) {
 
   return dict[mediaName];
 }
-
-$('.page-container').hide()
-
-var report;
-var provocative_list = []
-initWordCollection();
-window.refreshCards();
-$('#logo').addClass('loading');
-$('#logo').addClass('small');
-$('#help').hide()
+$(document).ready(function () {
 
 
-var IsReportGot = false;
-
-var now = moment.now();
-var tz = moment.tz(now, 'Asia/Taipei').subtract(1, 'days')
-var weekNum = tz.format('W')
+  initWordCollection();
 
 
-var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
-var objectUrl = s3Url + 'week_' + weekNum + '.json'
+  $.getJSON(objectUrl, function (t) {
+    report = t;
+    IsReportGot = true;
+    var totoalNews = 0;
+    var DELAY = 100;
 
-$.getJSON(objectUrl, function (t) {
-  report = t;
-  IsReportGot = true;
-  var totoalNews = 0;
-  var DELAY = 100;
+    $('.loader').fadeOut('slow')
+    $('.page-container').show()
 
-  $('.loader').fadeOut('slow')
-  $('.page-container').show()
-
-  $("#logo").one('animationiteration webkitAnimationIteration', function () {
-    console.log('report loaded')
-    $("#logo").removeClass('loading');
-    setTimeout(function () {
-      $('#logo').removeClass('small');
-    }, 10)
-  });
-
-  for (var i in media) {
-    totoalNews += report[media[i]].news_count;
-  }
-
-  $('#num-news').text(totoalNews);
-  var barData = [];
-  for (var item in media) {
-    barData.push({
-      title: media[item],
-      newsCount: report[media[item]].news_count
+    $("#logo").one('animationiteration webkitAnimationIteration', function () {
+      console.log('report loaded')
+      $("#logo").removeClass('loading');
+      setTimeout(function () {
+        $('#logo').removeClass('small');
+      }, 10)
     });
-  }
-  setTimeout(function() {
-    window.createNewsBarChart('#num-news-bar', barData);
-  }, DELAY);
 
-  // var categoryData = {}
-  // media.forEach(function(d) {
-  //   categoryData[d] = report[d]
-  // })
-  // window.createCategory(categoryData);
+    for (var i in media) {
+      totoalNews += report[media[i]].news_count;
+    }
 
-  var myWordCloud = wordCloud('div.cloud');
-  window.showNewWords(myWordCloud);
-  for (var item in mediaEN) {
-    window.addVisWord(mediaEN[item], report[media[item]].words_median);
-  }
+    $('#num-news').text(totoalNews);
+    var barData = [];
+    for (var item in media) {
+      barData.push({
+        title: media[item],
+        newsCount: report[media[item]].news_count
+      });
+    }
+    setTimeout(function () {
+      window.createNewsBarChart('#num-news-bar', barData);
+    }, DELAY);
 
-  $('.page-container').css('display', '');
-  $('.page-container').addClass('show-page')
-  setTimeout(function() {
-    $('.page-container').removeClass('show-page')
-  }, 1000);
+    // var categoryData = {}
+    // media.forEach(function(d) {
+    //   categoryData[d] = report[d]
+    // })
+    // window.createCategory(categoryData);
 
-  initBuzzword(t['buzzword'])
-  initWordAnalysis(t['word_analysis'])
-  initDate(t['time'])
-  initAbout()
-  var buzzword = d3.selectAll('.cloud text')
-  $(buzzword[0]).d3Click()
+    var myWordCloud = wordCloud('div.cloud');
+    window.showNewWords(myWordCloud);
+    for (var item in mediaEN) {
+      window.addVisWord(mediaEN[item], report[media[item]].words_median);
+    }
 
-  $('#help').show('slow')
-  $('#help .fa-angle-up').hide()
-  $('#help .content').hide()
-  $('#help').on('click', function(){
-    $('#help .content').toggle('slow')
-    $('#help .fa-angle-up').toggle('slow')
-    $('#help .fa-question').toggle('slow')
-  })
+    $('.page-container').css('display', '');
+    $('.page-container').addClass('show-page')
+    setTimeout(function () {
+      $('.page-container').removeClass('show-page')
+    }, 1000);
 
-});
+    initBuzzword(t['buzzword'])
+    initWordAnalysis(t['word_analysis'])
+    initDate(t['time'])
+    initAbout()
+    var buzzword = d3.selectAll('.cloud text')
+    $(buzzword[0]).d3Click()
+
+    $('#help').show('slow')
+    $('#help .fa-angle-up').hide()
+    $('#help .content').hide()
+    $('#help').on('click', function () {
+      $('#help .content').toggle('slow')
+      $('#help .fa-angle-up').toggle('slow')
+      $('#help .fa-question').toggle('slow')
+    })
+
+  });
+  if ($(window).width() > 980)
+    $('.band.footer').before(`<section class="band">
+        <div class="band-container polis-container">
+          <div class="band-inner">
+            <div>
+              <h1>分享與討論</h1>
+              <h2 class="sub-title">
+                有什麼想法嗎？在這裡為你的立場發聲
+              </h2>
+            </div>
+            <div class='polis' data-page_id='page-1' data-site_id='polis_site_id_QKXjXCd0z0A2hkx8l2'>
+            </div>
+          </div>
+        </div>
+      </section>
+      <script defer='true' async='true' src='https://pol.is/embed.js'></script>
+`)
+})
 
 $('.nav-about').on('click', function() {
   if ($('.page-container').hasClass('show-about')) {
