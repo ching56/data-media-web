@@ -105,7 +105,7 @@ $.getJSON(objectUrl, function (t) {
   initWordAnalysis(t['word_analysis'])
   initDate(t['time'])
   initAbout()
-  var buzzword = d3.selectAll('text').filter(function (d, i) { return d.text === t['words_count'][0][0] })
+  var buzzword = d3.selectAll('.cloud text')
   $(buzzword[0]).d3Click()
 
   $('#help').show('slow')
