@@ -118,7 +118,7 @@ $(document).ready(function () {
     })
 
   });
-  if ($(window).width() > 980)
+  if ($(window).width() > 980){
     $('.band.footer').before(`<section class="band">
         <div class="band-container polis-container">
           <div class="band-inner">
@@ -133,8 +133,10 @@ $(document).ready(function () {
           </div>
         </div>
       </section>
-      <script defer='true' async='true' src='https://pol.is/embed.js'></script>
-`)
+    `)
+    $('body').append("<script async='true' src='https://pol.is/embed.js'></script>")
+  }
+
 })
 
 $('.nav-about').on('click', function() {
