@@ -67,10 +67,16 @@ body {
 .loader {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: 0.2rem;
     animation: loading-text 2s infinite;
+    h5 {
+        color: red;
+        font-weight: 300;
+    }
 }
 
 @keyframes loading-text {

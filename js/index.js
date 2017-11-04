@@ -1,3 +1,6 @@
+const icon = '<i class="fa fa-info-circle" aria-hidden="true"></i>'
+const info = `<h5>${icon} 本週因蘋果日報網站更新，部分資料有所缺漏</h5>`
+
 var media = ['蘋果日報', '聯合報', '自由時報', '東森新聞雲', '中央通訊社', '中國時報'];
 var mediaEN = ['apple', 'udn', 'liberty', 'ettoday', 'cna', 'china'];
 var smallDesktopWidthSize = 980;
@@ -24,6 +27,7 @@ $('.page-container').hide()
 window.refreshCards();
 $('#logo').addClass('loading');
 $('#logo').addClass('small');
+$('.loader').append(info)
 $('#help').hide()
 
 function mediaNameTranslate(mediaName) {
@@ -57,6 +61,7 @@ $(document).ready(function () {
     var DELAY = 100;
 
     $('.loader').fadeOut('slow')
+    $('#info').fadeOut('slow')
     $('.page-container').show()
 
     $("#logo").one('animationiteration webkitAnimationIteration', function () {
