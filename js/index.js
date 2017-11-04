@@ -66,6 +66,14 @@ $(document).ready(function () {
         $('#logo').removeClass('small');
       }, 10)
     });
+    $('.buzzwords .outer').on('scroll', function(){
+      if ($('.buzzwords .outer').scrollLeft() > 360 ){
+        $('#tip').hide()
+        $('.buzzwords .outer').off('scroll')
+      }
+        console.log('scroll evednt')
+      
+    })
 
     for (var i in media) {
       totoalNews += report[media[i]].news_count;

@@ -1,6 +1,7 @@
 $break-medium: 980px;
 .buzzwords {
     width: 100%;
+    position: relative;
     &:before {
         content: '';
         z-index: 1;
@@ -45,6 +46,8 @@ $break-medium: 980px;
     }
     &.active {
         opacity: 1;
+        z-index: 1;
+        background-color: white;
     }
 }
 
