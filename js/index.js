@@ -76,8 +76,6 @@ $(document).ready(function () {
         $('#tip').hide()
         $('.buzzwords .outer').off('scroll')
       }
-        console.log('scroll evednt')
-      
     })
 
     for (var i in media) {
@@ -119,7 +117,22 @@ $(document).ready(function () {
     initDate(t['time'])
     initAbout()
     var buzzword = d3.selectAll('.cloud text')
-    $(buzzword[0]).d3Click()
+    var renderedWord = buzzword[0].map((d)=>{
+      return d.innerHTML
+    })
+    var wordData = t['words_count'].map((d)=>d[0])
+    console.log(123, renderedWord)
+    console.log(123, buzzword)
+    var HotestRenderedWordIndex = -1
+    for (var i = 0; i < wordData.length;i++){
+      HotestRenderedWordIndex = renderedWord.findIndex((d) => {
+        return d == wordData[i]
+      })
+      if (HotestRenderedWordIndex != -1){
+        break
+      }
+    }
+    $(buzzword[0][HotestRenderedWordIndex]).d3Click()
 
     $('#help').show('slow')
     $('#help .fa-angle-up').hide()
