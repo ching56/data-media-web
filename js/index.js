@@ -22,6 +22,7 @@ var weekNum = tz.format('W')
 
 var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
 var objectUrl = s3Url + 'week_' + weekNum + '.json'
+objectUrl = 'week_45.json'
 
 $('.page-container').hide()
 window.refreshCards();
