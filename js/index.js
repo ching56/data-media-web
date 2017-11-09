@@ -48,11 +48,24 @@ function mediaNameTranslate(mediaName) {
 
   return dict[mediaName];
 }
+
+const scrollTip =
+`<div id="tip">
+  使用
+  <em>shift</em>+
+  <span class="mouse-icon">
+    <span class="scroll-btn"></span>
+  </span>水平捲動
+</div>`
+
 $(document).ready(function () {
 
-
+  const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
   initWordCollection();
 
+  if(!isMac){
+    $('#before-tip').after(scrollTip)
+  }
 
   $.getJSON(objectUrl, function (t) {
     report = t;
