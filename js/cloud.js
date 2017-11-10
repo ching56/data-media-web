@@ -139,7 +139,7 @@ function wordCloud(selector) {
       d3.layout.cloud()
         .size([width, height])
         .words(words)
-        .padding(4)
+        .padding(6)
         .rotate(function () {
           return Math.random() * 45 - 22.5;
         })
@@ -156,7 +156,10 @@ function wordCloud(selector) {
 function showNewWords(vis, i) {
   var max = report.words_count[0][1];
   var scale = max / 100;
+  if($(window).width() < 980)
+    scale = max / 50;
   var cloudConfig = report.words_count.map(function (obj, index) {
+    console.log((10 + obj[1] / scale))
     return {
       text: obj[0],
       size: (10 + obj[1] / scale),
