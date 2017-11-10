@@ -230,9 +230,9 @@ $('body').on('scroll', function(event) {
     $('#help .content').html(content)
     $('#help').animateCss(updateAnimation)
   } else if (isPosBeyondIdTop(pos, '.horizontal-lists') && !isPosBeyondIdTop(pos, '.cloud')  && section != 2) {
-    var title = '<h4>標題用詞報告</h4>'
-    var content = title + `<hr><strong>情緒性報導排行</strong>統計 6 家媒體本週情緒性報導比率的前五名，例如：「台灣  50%」，代表這家媒體所有標題含有「台灣」的報導，標題有 50% 含有情緒性用詞。</p>
-<hr><strong>少量報導主題</strong>分析同一詞語在 6 家媒體中，如果這家媒體對於這個詞語的關注度較低，即為少量報導主題。</p>`
+    var title = ''
+    var content = title + `<h4>情緒性報導排行</h4>統計 6 家媒體本週情緒性報導比率的前五名，例如：「台灣  50%」，代表這家媒體所有標題含有「台灣」的報導，標題有 50% 含有情緒性用詞。</p>
+<h4>少量報導主題</h4>分析同一詞語在 6 家媒體中，如果這家媒體對於這個詞語的關注度較低，即為少量報導主題。</p>`
     section = 2
     $('#help .content').html(content)
     $('#help').animateCss(updateAnimation)
@@ -242,18 +242,17 @@ $('body').on('scroll', function(event) {
       return '<li>' + w + '</li>'
     }).join(' ')
     var content = title + `統計本週搜集的所有新聞標題內的用詞，與上週資料做比較，<em>使用次數成長最多者</em>，即為本週的熱詞。
-<hr>
-<strong>情緒性報導</strong>
+<h4>情緒性報導</h4>
 透過分析新聞資料的內文與標題，並以詞語向量化 ( word2vec ) 、群聚 ( cluster ) 的技術，找出與「酸」相近的用詞集，並作為以下定義的「情緒性用詞」。
 而情緒性報導是為，新聞標題中含有情緒性用詞的報導，此處統計各家媒體報導本週熱詞時情緒性報導的比率。「情緒性用詞」包含<ol>${list_html}
-</ol><hr><strong>報導數量</strong>統計 6 家媒體對本周熱詞的報導數量，分析其數量。`
+</ol><h4>報導數量</h4>統計 6 家媒體對本周熱詞的報導數量，分析其數量。`
     section = 1
     $('#help .content').html(content)
     $('#help').animateCss(updateAnimation)
   } else if (!isPosBeyondIdTop(pos, '.buzzwords') && section != 0){
     var title = ''
     var content = title + `統計6家媒體於官方網站上，一周內所發表之新聞量。
-    <hr><strong>資料來源</strong>
+    <h4>資料來源</h4>
     <ol>
     <li>蘋果日報</li>
     <li>聯合報</li>
