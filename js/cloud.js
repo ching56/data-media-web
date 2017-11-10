@@ -159,7 +159,6 @@ function showNewWords(vis, i) {
   if($(window).width() < 980)
     scale = max / 50;
   var cloudConfig = report.words_count.map(function (obj, index) {
-    console.log((10 + obj[1] / scale))
     return {
       text: obj[0],
       size: (10 + obj[1] / scale),
@@ -173,6 +172,7 @@ function clickCloud(d){
   // add word collection
   var NUM_OF_SHOWED_NEWS = 2
   var nonProvocativeNewses = []
+  const isMobile = $(window).width() < 980
 
   createTimeline('#timeline-inner', report.words_count[d.index][3]);
 
@@ -223,8 +223,14 @@ function clickCloud(d){
       wordCollectionAddProvocativeNum(mediaEN[i], 0)
     }
   }
-  $('#qurey-word').text(d.text)
-  $('#qurey-word').prepend('<i class="fa fa-bullseye" aria- hidden="true" ></i>')
+  $('.qurey-word').text(d.text)
+  $('.qurey-word').prepend('<i class="fa fa-bullseye" aria- hidden="true" ></i>')
+
+  if( isMobile){
+    $('html, body').animate({
+      scrollTop: $('.qurey-word-container-mob').offset().top + $('body').scrollTop()
+    }, 600);
+  }
    
 }
 

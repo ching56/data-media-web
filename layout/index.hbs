@@ -83,11 +83,15 @@
             <div><h1>媒體用詞雲</h1>
             <h2 class="sub-title">網羅本週前一百新聞標題熱門詞彙，<i class="fa fa-hand-pointer-o" aria-hidden="true"></i>點選文字發現你的媒礦</h2></div> 
             <div class="qurey-word-container">
-              <h2 id="qurey-word"></h2>
+              <h2 class="qurey-word"></h2>
             </div>
             <div class="advance-section-container">
               <div class="cloud-timeline-container">
-                {{> cloud}} {{> timeline}}
+                {{> cloud}} 
+                <div class="qurey-word-container-mob">
+                  <h2 class="qurey-word"></h2>
+                </div>
+                {{> timeline}}
               </div>
               <div class="wordCollection-container">
                  {{> wordCollection}}
