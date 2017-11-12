@@ -76,14 +76,14 @@ body {
     h5 {
         color: red;
         font-weight: 300;
-        max-width: 80%;
-        margin: 4px 0;
-        font-size: 0.6rem;
-        letter-spacing: 0.1rem;
         &:first-child {
-            margin-top:36px;
+            margin-top: 36px;
         }
     }
+}
+
+.mob-waring {
+    display: none;
 }
 
 @keyframes loading-text {
@@ -641,5 +641,14 @@ body {
     }
     #modal-container.show #pop-content .card {
         min-width: initial;
+    }
+    .mob-waring {
+        display: block;
+    }
+    .loader h5 {
+        max-width: 80%;
+        margin: 4px 0;
+        font-size: 0.6rem;
+        letter-spacing: 0.1rem;
     }
 }
