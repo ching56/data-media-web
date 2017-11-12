@@ -29,7 +29,7 @@ function getWordAnalysisProvocativeList(data){
 }
 
 function getWordAnalysisOutlinerList(data){
-  return getOverOutlinerList(data).append(getUnderOutlinerList(data))
+  return $.merge(getOverOutlinerList(data), getUnderOutlinerList(data))
 }
 
 function getOverOutlinerList(data){
