@@ -13,6 +13,7 @@ $.fn.extend({
 
 const icon = '<i class="fa fa-info-circle" aria-hidden="true"></i>'
 const info = `<h5>${icon} 本週因蘋果日報網站更新，部分資料有所缺漏</h5>`
+let qureyWordTop
 
 var media = ['蘋果日報', '聯合報', '自由時報', '東森新聞雲', '中央通訊社', '中國時報'];
 var mediaEN = ['apple', 'udn', 'liberty', 'ettoday', 'cna', 'china'];
@@ -75,7 +76,7 @@ const scrollTip =
 
 $(document).ready(function () {
 
-  const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+  const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
   initWordCollection();
 
   if(!isMac){
@@ -164,7 +165,7 @@ $(document).ready(function () {
       $('#help .fa-angle-up').toggle('slow')
       $('#help .fa-question').toggle('slow')
     })
-
+    qureyWordTop = $('.qurey-word-container-mob .qurey-word').offset().top
   });
   if ($(window).width() > 980){
     $('.band.footer').before(`<section class="band">
@@ -184,7 +185,6 @@ $(document).ready(function () {
     `)
     $('body').append("<script async='true' src='https://pol.is/embed.js'></script>")
   }
-
 })
 
 $('.nav-about').on('click', function() {
@@ -239,7 +239,7 @@ $('body').on('scroll', function(event) {
   } else if (isPosBeyondIdTop(pos, '.buzzwords') && !isPosBeyondIdTop(pos, '.horizontal-lists') && section != 1) {
     var title = '<h4>本週熱詞</h4>'
     var list_html = provocative_list.map(function(w){
-      return '<li>' + w + '</li>'
+      return w.trim().length === 0 ? '' : '<li>' + w + '</li>'
     }).join(' ')
     var content = title + `統計本週搜集的所有新聞標題內的用詞，與上週資料做比較，<em>使用次數成長最多者</em>，即為本週的熱詞。
 <h4>情緒性報導</h4>

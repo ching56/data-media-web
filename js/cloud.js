@@ -223,15 +223,14 @@ function clickCloud(d){
       wordCollectionAddProvocativeNum(mediaEN[i], 0)
     }
   }
-  $('.qurey-word').text(d.text)
-  $('.qurey-word').prepend('<i class="fa fa-bullseye" aria- hidden="true" ></i>')
-
-  if( isMobile){
+  
+  if (isMobile && $('.qurey-word').text().length !== 0){
     $('html, body').animate({
-      scrollTop: $('.qurey-word-container-mob').offset().top + $('body').scrollTop()
+      scrollTop: qureyWordTop
     }, 600);
   }
-   
+  $('.qurey-word').text(d.text)
+  $('.qurey-word').prepend('<i class="fa fa-bullseye" aria- hidden="true" ></i>')
 }
 
 jQuery.fn.d3Click = function () {
