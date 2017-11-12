@@ -76,6 +76,13 @@ body {
     h5 {
         color: red;
         font-weight: 300;
+        max-width: 80%;
+        margin: 4px 0;
+        font-size: 0.6rem;
+        letter-spacing: 0.1rem;
+        &:first-child {
+            margin-top:36px;
+        }
     }
 }
 
@@ -542,8 +549,7 @@ body {
     margin-top: 12px;
     font-size: 15px;
     letter-spacing: 1px;
-    font-weight: 700;
-    opacity: .4;
+    font-weight: 900;
     padding: 0;
 }
 

@@ -355,8 +355,8 @@ function animateToId(id) {
 }
 
 function initDate(dateData){
-  var begin = dateData.begin.replace('-', '/').slice(5)
-  var end = dateData.end.replace('-', '/').slice(5)
+  var begin = dateData.begin.replace(/-/g, '/').slice(5)
+  var end = dateData.end.replace(/-/g, '/').slice(5)
   var html = begin + ' ~ ' + end
   $('.nav-time').html(html)
 }
