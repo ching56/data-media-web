@@ -11,8 +11,9 @@ $.fn.extend({
   }
 });
 
-const icon = '<i class="fa fa-info-circle" aria-hidden="true"></i>'
-const info = `<h5>${icon} 本週因蘋果日報網站更新，部分資料有所缺漏</h5>`
+// const icon = '<i class="fa fa-info-circle" aria-hidden="true"></i>'
+// const info = `<h5>${icon} 本週因蘋果日報網站更新，部分資料有所缺漏</h5>`
+const info = ''
 let qureyWordTop
 
 var media = ['蘋果日報', '聯合報', '自由時報', '東森新聞雲', '中央通訊社', '中國時報'];
@@ -41,8 +42,6 @@ let section = -1
 
 $('.page-container').hide()
 window.refreshCards();
-$('#logo').addClass('loading');
-$('#logo').addClass('small');
 $('.loader').append(info)
 $('#help').hide()
 
@@ -78,6 +77,8 @@ $(document).ready(function () {
 
   const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
   initWordCollection();
+  $('#logo').addClass('loading');
+  $('#logo').addClass('small');
 
   if(!isMac){
     $('#before-tip').after(scrollTip)
