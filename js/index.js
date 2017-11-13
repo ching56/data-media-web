@@ -37,12 +37,8 @@ var tz = moment.tz(now, 'Asia/Taipei').subtract(1, 'days')
 var weekNum = tz.format('W')
 
 var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
-// var reportUrl = s3Url + 'week_' + weekNum + '.json'
-// var detailUrl = s3Url + 'detail_' + weekNum + '.json'
-
-var reportUrl = 'week_46.json'
-var detailUrl = 'detail_46.json'
-
+var reportUrl = s3Url + 'week_' + weekNum + '.json'
+var detailUrl = s3Url + 'detail_' + weekNum + '.json'
 
 let section = -1
 
@@ -152,7 +148,6 @@ $(document).ready(function () {
       $('#help .fa-angle-up').toggle('slow')
       $('#help .fa-question').toggle('slow')
     })
-    qureyWordTop = $('.qurey-word-container-mob .qurey-word').offset().top
   });
   if ($(window).width() > 980){
     $('.band.footer').before(`<section class="band">
@@ -195,6 +190,7 @@ $(document).ready(function () {
       }
     }
     $(buzzword[0][HotestRenderedWordIndex]).d3Click()
+    qureyWordTop = $('.qurey-word-container-mob .qurey-word').offset().top
   })
 })
 
