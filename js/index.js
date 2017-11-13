@@ -30,13 +30,19 @@ var mediaColor = {
 var report;
 var provocative_list = []
 var IsReportGot = false;
+let IsDetailGot = false
 
 var now = moment.now();
 var tz = moment.tz(now, 'Asia/Taipei').subtract(1, 'days')
 var weekNum = tz.format('W')
 
 var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
-var objectUrl = s3Url + 'week_' + weekNum + '.json'
+// var reportUrl = s3Url + 'week_' + weekNum + '.json'
+// var detailUrl = s3Url + 'detail_' + weekNum + '.json'
+
+var reportUrl = 'week_46.json'
+var detailUrl = 'detail_46.json'
+
 
 let section = -1
 
@@ -44,6 +50,7 @@ $('.page-container').hide()
 window.refreshCards();
 $('.loader').append(info)
 $('#help').hide()
+$('.advance-section-container').hide()
 
 function mediaNameTranslate(mediaName) {
   var dict = {
@@ -84,7 +91,7 @@ $(document).ready(function () {
     $('#before-tip').after(scrollTip)
   }
 
-  $.getJSON(objectUrl, function (t) {
+  $.getJSON(reportUrl, function (t) {
     report = t;
     IsReportGot = true;
     var totoalNews = 0;
@@ -124,11 +131,7 @@ $(document).ready(function () {
       window.createNewsBarChart('#num-news-bar', barData);
     }, DELAY);
 
-    var myWordCloud = wordCloud('div.cloud');
-    window.showNewWords(myWordCloud);
-    for (var item in mediaEN) {
-      window.addVisWord(mediaEN[item], report[media[item]].words_median);
-    }
+
 
     $('.page-container').css('display', '');
     $('.page-container').addClass('show-page')
@@ -140,23 +143,6 @@ $(document).ready(function () {
     initWordAnalysis(t['word_analysis'])
     initDate(t['time'])
     initAbout()
-    var buzzword = d3.selectAll('.cloud text')
-    var renderedWord = buzzword[0].map((d)=>{
-      return d.innerHTML
-    })
-    var wordData = t['words_count'].map((d)=>d[0])
-    console.log(123, renderedWord)
-    console.log(123, buzzword)
-    var HotestRenderedWordIndex = -1
-    for (var i = 0; i < wordData.length;i++){
-      HotestRenderedWordIndex = renderedWord.findIndex((d) => {
-        return d == wordData[i]
-      })
-      if (HotestRenderedWordIndex != -1){
-        break
-      }
-    }
-    $(buzzword[0][HotestRenderedWordIndex]).d3Click()
 
     $('#help').show('slow')
     $('#help .fa-angle-up').hide()
@@ -186,6 +172,30 @@ $(document).ready(function () {
     `)
     $('body').append("<script async='true' src='https://pol.is/embed.js'></script>")
   }
+  $.getJSON(detailUrl,function(t){
+    $('.advance-section-container').show()
+    $('.cloud-loader').hide()
+    report.words_count = t
+    var myWordCloud = wordCloud('div.cloud');
+    showNewWords(myWordCloud);
+
+    var buzzword = d3.selectAll('.cloud text')
+    var renderedWord = buzzword[0].map((d) => {
+      return d.innerHTML
+    })
+    var wordData = t.map((d) => d[0])
+    var HotestRenderedWordIndex = -1
+
+    for (var i = 0; i < wordData.length; i++) {
+      HotestRenderedWordIndex = renderedWord.findIndex((d) => {
+        return d == wordData[i]
+      })
+      if (HotestRenderedWordIndex != -1) {
+        break
+      }
+    }
+    $(buzzword[0][HotestRenderedWordIndex]).d3Click()
+  })
 })
 
 $('.nav-about').on('click', function() {

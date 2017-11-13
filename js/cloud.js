@@ -158,6 +158,7 @@ function showNewWords(vis, i) {
   var scale = max / 100;
   if($(window).width() < 980)
     scale = max / 50;
+  console.log(report.words_count.map((d)=>d))
   var cloudConfig = report.words_count.map(function (obj, index) {
     return {
       text: obj[0],
