@@ -168,6 +168,7 @@ $(document).ready(function () {
     $('body').append("<script async='true' src='https://pol.is/embed.js'></script>")
   }
   $.getJSON(detailUrl,function(t){
+    console.log('detail loaded')
     $('.advance-section-container').show()
     $('.cloud-loader').hide()
     report.words_count = t
@@ -223,11 +224,10 @@ $.get('dist/provocative_words.txt', function (data) {
   provocative_list = data.split('\n')
 })
 const SHOWDIST = $(window).height() * 0.75;
-const pos = $(window).scrollTop() + SHOWDIST;
 const updateAnimation = 'rotateIn'
 
-$('body').on('scroll', function(event) {
-
+$(window).on('scroll', function(event) {
+  const pos = $(window).scrollTop() + SHOWDIST;
   if (isPosBeyondIdTop(pos, '.cloud') && section != 3){
     var title = '<h4>媒體用詞雲</h4>'
     var content = title + `統計 6 家媒體本週新聞標題內的用詞，在標題內<em>出現次數越多者字體越大</em>。`
