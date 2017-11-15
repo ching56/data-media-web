@@ -1,6 +1,6 @@
 function ShowWordCollectionInModal(event) {
   var firedMediaName = mediaNameTranslate($(event.target).data('media'));
-  var qureyWord = $('.qurey-word')[0].innerText
+  var qureyWord = $('.qurey-word')[0].innerText.split('目前選定：')[1]
   var IndexOfWord;
   if (qureyWord === '')
     return;

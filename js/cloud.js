@@ -231,7 +231,8 @@ function clickCloud(d){
     }, 600);
   }
   $('.qurey-word').text(d.text)
-  $('.qurey-word').prepend('<i class="fa fa-bullseye" aria- hidden="true" ></i>')
+  $('.qurey-word').prepend('<i class="fa fa-bullseye" aria- hidden="true" ></i>目前選定：')
+  $('.timeline-container, .wordCollection-container').fadeOut().fadeIn()
 }
 
 jQuery.fn.d3Click = function () {

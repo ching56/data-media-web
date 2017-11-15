@@ -14,14 +14,15 @@
   <div id="help">
     <i class="fa fa-question fa-2x" aria-hidden="true"></i>
     <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+    <div class="hover-tip"></div>
     <div class="content">
        統計6家媒體於官方網站上，一周內所發表之新聞量。
       <h4>資料來源</h4>
       <ol>
-        <li>蘋果日報</li>
+        <li>蘋果日報(含即時新聞)</li>
+        <li>自由時報(含即時新聞)</li>
+        <li>東森新聞雲(含即時新聞)</li>
         <li>聯合報</li>
-        <li>自由時報</li>
-        <li>東森新聞雲</li>
         <li>中央通訊社</li>
         <li>中國時報</li>
       </ol>
@@ -51,8 +52,9 @@
         <div class="band-container top-band">
           <div class="band-inner">
              <div class="bar-container"><div id="num-news-bar"></div></div>            <div class="data-desc">
+              <span class="num-scale">本週共分析</span>
               <h1 id="num-news"></h1>
-              <h2 id="num-scale">篇新聞</h2>
+              <span class="num-scale">篇新聞</span>
             </div>
           </div>
         </div>
@@ -76,7 +78,7 @@
       <section class="band">
         <div class="band-container">
           <div class="band-inner">
-            <div><h1>媒體用詞雲</h1>
+            <div><h1>用詞文字雲</h1>
             <h2 class="sub-title">網羅本週前一百新聞標題熱門詞彙，<i class="fa fa-hand-pointer-o" aria-hidden="true"></i>點選文字發現你的媒礦</h2></div> 
             <div class="qurey-word-container">
               <h2 class="qurey-word"></h2>

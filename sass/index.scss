@@ -58,6 +58,10 @@ body {
     background-color: $china-color
 }
 
+.fa.hide-icon {
+    display: none;
+}
+
 .big-title {
     position: relative;
     margin-left: 80px;
@@ -144,7 +148,8 @@ body {
         opacity: 1;
         transform: translate(-4px, -4px);
     }
-    .content {
+    .content,
+    .hover-tip {
         text-align: left;
         font-size: 0.8rem;
         letter-spacing: 0.05rem;
@@ -166,6 +171,17 @@ body {
                 -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
             }
         }
+    }
+}
+
+.help-i {
+    opacity: 0.3;
+    transition: 0.4s;
+    padding-left: 4px;
+    &:hover {
+        color: #fdf74d;
+        opacity: 1;
+        transform: scale(1.2);
     }
 }
 
@@ -401,10 +417,10 @@ body {
                 font-size: 100px;
                 font-weight: 100;
             }
-            & #num-scale {
-                font-weight: 500;
+            & .num-scale {
+                font-weight: 300;
                 font-size: 20px;
-                margin-right: 50px;
+                margin: 24px;
             }
             .bar-container {
                 display: flex;
@@ -610,6 +626,15 @@ body {
 }
 
 @media screen and (max-width: $break-medium) {
+    .help-i {
+        display: none;
+    }
+    .data-desc {
+        margin: 48px;
+    }
+    .num-scale {
+        margin: 0px !important;
+    }
     #tip {
         display: none;
     }
