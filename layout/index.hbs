@@ -6,6 +6,14 @@
 </head>
 
 <body>
+  <div id="fb-root"></div>
+  <script>(function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.11&appId=1611729818866005';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   <div id="modal-container">
     <div id="pop-content">
       <div id="modal-closer" class="close"></div>
@@ -113,7 +121,9 @@
       <section class="band footer" >
         <div class="band-container">
           <div class="band-inner">
-            <div class="about-icon">about us</div>
+            <div class="about-icon">about</div>
+            <div class="fb-like" data-href="https://minedia.info" data-layout="standard" data-action="like"
+              data-size="small" data-show-faces="true" data-colorscheme="dark" data-width="225" data-share="true" data-ref></div>
           </div>
         </div>
       </section>

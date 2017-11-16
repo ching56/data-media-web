@@ -62,6 +62,10 @@ body {
     display: none;
 }
 
+.hide-hover {
+    display: none !important;
+}
+
 .big-title {
     position: relative;
     margin-left: 80px;
@@ -395,6 +399,9 @@ body {
         margin-bottom: 120px;
         position: relative;
         width: 100%;
+        &:last-child {
+            margin-bottom: 64px;
+        }
         &.top-band {
             min-height: 100px;
         }
@@ -601,6 +608,7 @@ body {
         justify-content: center;
         align-items: center;
         padding: 12px;
+        margin-bottom: 40px;
         font-weight: 700;
         border-bottom: 2px solid #EFEFEF;
         transition: 0.2s;
