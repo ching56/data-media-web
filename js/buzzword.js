@@ -49,6 +49,7 @@ function initBuzzword(data) {
     $('#help .hover-tip').html(content)
 
     $('#help .hover-tip').toggle('slow')
+    $('#help .content').hide()
     $('#help .fa').addClass('hide-icon')
   }, function(e){
     $('#help').css({
@@ -57,6 +58,7 @@ function initBuzzword(data) {
       color: ''
     })
     $('#help .hover-tip').toggle('slow')
+    $('#help .content').show()
     $('#help .fa').removeClass('hide-icon')
   })
 }

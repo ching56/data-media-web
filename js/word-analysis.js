@@ -23,6 +23,7 @@ function initWordAnalysis(data) {
     $('#help .hover-tip').html(content)
 
     $('#help .hover-tip').toggle('slow')
+    $('#help .content').hide()
     $('#help .fa').addClass('hide-icon')
   }, function (e) {
     $('#help').css({
@@ -31,6 +32,7 @@ function initWordAnalysis(data) {
       color: ''
     })
     $('#help .hover-tip').toggle('slow')
+    $('#help .content').show()
     $('#help .fa').removeClass('hide-icon')
   })
   $('.horizontal-lists .outer').append('<div style="visibility: hidden"><h5>placeholder</h5><div>')
