@@ -635,7 +635,7 @@ body {
 
 @media screen and (max-width: $break-medium) {
     .help-i {
-        display: none;
+        display: none !important;
     }
     .data-desc {
         margin: 48px;
