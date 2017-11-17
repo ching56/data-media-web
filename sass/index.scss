@@ -387,7 +387,7 @@ body {
         padding: 0px 10px;
         &.sub-title {
             opacity: 0.8;
-            font-weight: 100;
+            font-weight: 300;
             font-size: 1.2rem;
             letter-spacing: 0.1rem;
         }
@@ -422,7 +422,7 @@ body {
             }
             & #num-news {
                 font-size: 100px;
-                font-weight: 100;
+                font-weight: 300;
             }
             & .num-scale {
                 font-weight: 300;
@@ -444,6 +444,7 @@ body {
                 display: flex;
                 justify-content: center;
                 align-items: baseline;
+                margin-bottom: 64px;
             }
             #tip {
                 position: absolute;

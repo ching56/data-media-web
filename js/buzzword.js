@@ -65,7 +65,7 @@ function initBuzzword(data) {
 function appendBuzzwordProvocativeList(index, provo_data){
   var seletor = `.buzzword-container[data-index="${index}"] .provocative-list`
   $(seletor).empty()
-  var STANDARD = 10
+  var STANDARD = 0.05
   for (var m in media) {
     if (provo_data[media[m]] > STANDARD) {
       var html = `<li class="hightlight"><span class="media-name">${media[m]}</span><span class="provocative-num">${(provo_data[media[m]]*100).toFixed(1)}%</span></li>`
@@ -91,7 +91,7 @@ function appendBuzzwordOutlinerList(index, outliner_data) {
   }
   for (var m in media) {
     if (outliner_data[media[m]] === -1) {
-      var html = `<li><span class="media-name">${media[m]}</span><span class="news-num">正常報導</span></li>`
+      var html = `<li class="hightlight"><span class="media-name">${media[m]}</span><span class="news-num">少量報導</span></li>`
       $(seletor).append(html)
     }
   }
