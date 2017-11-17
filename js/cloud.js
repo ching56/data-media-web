@@ -61,20 +61,20 @@ function wordCloud(selector) {
       var isProvocative = false;
       for (var media in dict) {
         var provocativeRatio = dict[media].provocativeNum / dict[media].count
-        if (provocativeRatio > 0.05 && dict[media].count > 10)
+        if (provocativeRatio > 0.05)
           isProvocative = true
       }
       var color
       var weight
       if (isProvocative){
         color = 'red'
-        weight = 400
+        weight = 300
         if (news_amount > 150) {
-          weight = 700
+          weight = 400
         }
       } else if(news_amount > 150) {
         color = 'rgba(0,0,0,.75)'
-        weight = 700
+        weight = 400
       } else {
         color = 'lightgrey'
         weight = 100

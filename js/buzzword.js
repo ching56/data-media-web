@@ -2,7 +2,7 @@ function initBuzzword(data) {
   data.forEach(function(b, i){
       var html = `  <div class="buzzword-container active" data-index="${i}">
       <div class="buzzword-title-container">
-        <h3 class="buzzword">${(i+1)+'.'+b['word']}</h3>
+        <h3 class="buzzword"><span>${(i + 1)}.</span>${b['word']}</h3>
         <h5>
           成長<i class="fa fa-arrow-up" aria-hidden="true"></i>
           <span class="buzzword-growth">${(b['growth'] / b['news_num'] * 100).toFixed(1) + '%'}</span>
