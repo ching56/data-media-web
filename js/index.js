@@ -257,7 +257,7 @@ $(window).on('scroll', function(event) {
     $('#help').animateCss(updateAnimation)
   } else if (!isPosBeyondIdTop(pos, '.buzzwords') && section != 0){
     var title = ''
-    var content = title + `統計6家媒體於官方網站上，一周內所發表之新聞量。
+    var content = title + `統計6家媒體於官方網站上，一周內所發表之文章數，包含新聞、專欄、社論等。
     <h4>資料來源</h4>
     <ol>
     <li>蘋果日報(含即時新聞)</li>
