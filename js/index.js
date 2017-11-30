@@ -11,14 +11,13 @@ $.fn.extend({
   }
 });
 
-// const icon = '<i class="fa fa-info-circle" aria-hidden="true"></i>'
-// const info = `<h5>${icon} 本週因蘋果日報網站更新，部分資料有所缺漏</h5>`
-const info = ''
+const icon = '<i class="fa fa-info-circle" aria-hidden="true"></i>'
+const info = `<h5>${icon} 聯合報由於資料缺漏，暫時下架</h5>`
 let qureyWordTop
 
 var media = [
   '蘋果日報', 
-  '聯合報', 
+  // '聯合報', 
   '自由時報', 
   '東森新聞雲', 
   '中央通訊社', 

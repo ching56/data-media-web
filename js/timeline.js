@@ -49,7 +49,7 @@ function createTimeline(selector, data) {
 
   var parseTime = d3.time.format("%Y-%m-%d").parse;
   var parseTime_slash = d3.time.format("%Y/%m/%d").parse;
-
+  data = data.filter((i)=>{return (media.indexOf(i.website) > -1)})
   data.map(function(i) {
     var formated_date = i.time;
     if (!(formated_date instanceof Date))
