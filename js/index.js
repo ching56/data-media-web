@@ -16,7 +16,14 @@ $.fn.extend({
 const info = ''
 let qureyWordTop
 
-var media = ['蘋果日報', '聯合報', '自由時報', '東森新聞雲', '中央通訊社', '中國時報'];
+var media = [
+  '蘋果日報', 
+  '聯合報', 
+  '自由時報', 
+  '東森新聞雲', 
+  '中央通訊社', 
+  '中國時報'
+];
 var mediaEN = ['apple', 'udn', 'liberty', 'ettoday', 'cna', 'china'];
 var smallDesktopWidthSize = 980;
 var mediaColor = {

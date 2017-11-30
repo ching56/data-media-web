@@ -109,6 +109,11 @@ $break-medium: 980px;
     }
 }
 
+.num-ana-scale-placeholder{
+    font-size: 0.5rem;
+    visibility: hidden;
+}
+
 @media screen and (max-width: $break-medium) {
     .buzzwords {
         .buzzword-container {

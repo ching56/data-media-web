@@ -22,6 +22,7 @@ function initBuzzword(data) {
           <h5>
           報導數量
           <i class="fa fa-question-circle help-i" data-type="num" aria-hidden="true"></i>
+          <div class="num-ana-scale-placeholder">placeholder</div>
           </h5>
           <ul class="outliner-list">
           </ul>
