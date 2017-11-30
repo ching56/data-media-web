@@ -302,6 +302,15 @@ function initWordCollection() {
     $('#pop-content .card-container').removeClass('show');
     $('body,html').css('overflow', '');
   });
+  media.forEach(function (m) {
+    const html = `
+    <div class="list ${mediaNameTranslate(m)}-container">
+      <h3>${m}</h3>
+      <div class="cards"></div>
+    </div>
+    `
+    $('#word-collection').append(html)
+  })
 }
 
 function initTitleAnalysis(news) {
