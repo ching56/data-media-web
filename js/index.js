@@ -12,18 +12,19 @@ $.fn.extend({
 });
 
 const icon = '<i class="fa fa-info-circle" aria-hidden="true"></i>'
-const info = `<h5>${icon} 聯合報由於資料缺漏，暫時下架</h5>`
+const info = `<h5>${icon} 由於伺服器問題，12/10 新聞資料有所缺漏</h5>`
 let qureyWordTop
 
 var media = [
   '蘋果日報', 
-  // '聯合報', 
+  '聯合報', 
   '自由時報', 
   '東森新聞雲', 
   '中央通訊社', 
-  '中國時報'
+  '中國時報',
+  '華視'
 ];
-var mediaEN = ['apple', 'udn', 'liberty', 'ettoday', 'cna', 'china'];
+var mediaEN = ['apple', 'udn', 'liberty', 'ettoday', 'cna', 'china', 'cts'];
 var smallDesktopWidthSize = 980;
 var mediaColor = {
   '中央通訊社': '#26A69A',
@@ -31,7 +32,8 @@ var mediaColor = {
   '東森新聞雲': '#5C6BC0',
   '自由時報': '#FFCA28',
   '聯合報': '#FF7043',
-  '中國時報': '#03A9F4'
+  '中國時報': '#03A9F4',
+  '華視': '#90A4AE',
 };
 var report;
 var provocative_list = []
@@ -45,6 +47,8 @@ var weekNum = tz.format('W')
 var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
 var reportUrl = s3Url + 'week_' + weekNum + '.json'
 var detailUrl = s3Url + 'detail_' + weekNum + '.json'
+// var reportUrl = 'week_50.json'
+// var detailUrl = 'detail_50.json'
 let section = -1
 
 $('.page-container').hide()
@@ -61,12 +65,14 @@ function mediaNameTranslate(mediaName) {
     'ettoday': '東森新聞雲',
     'cna': '中央通訊社',
     'china': '中國時報',
+    'cts': '華視',
     '蘋果日報': 'apple',
     '聯合報': 'udn',
     '自由時報': 'liberty',
     '東森新聞雲': 'ettoday',
     '中央通訊社': 'cna',
-    '中國時報': 'china'
+    '中國時報': 'china',
+    '華視': 'cts',
   };
 
   return dict[mediaName];

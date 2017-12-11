@@ -571,6 +571,23 @@ body {
     letter-spacing: 1px;
     font-weight: 900;
     padding: 0;
+    opacity: 0.2;
+    animation: 2s breathe both infinite;
+}
+
+@keyframes breathe {
+    0% {
+        opacity: 0.2;
+        color: #333333;
+    }
+    70% {
+        opacity: 1;
+        color: black;
+    }
+    100% {
+        opacity: 0.2;
+        color: #333333;
+    }
 }
 
 .polis-container {
@@ -595,7 +612,7 @@ body {
 }
 
 .footer {
-    .band-container{
+    .band-container {
         margin-bottom: 64px;
     }
     .band-inner {
