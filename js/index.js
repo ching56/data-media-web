@@ -12,7 +12,8 @@ $.fn.extend({
 });
 
 const icon = '<i class="fa fa-info-circle" aria-hidden="true"></i>'
-const info = `<h5>${icon} 由於伺服器問題，12/10 新聞資料有所缺漏</h5>`
+// const info = `<h5>${icon} 由於伺服器問題，12/10 新聞資料有所缺漏</h5>`
+const info = ''
 let qureyWordTop
 
 var media = [
