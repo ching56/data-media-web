@@ -160,7 +160,20 @@ $(document).ready(function () {
       $('#help .fa-angle-up').toggle('slow')
       $('#help .fa-question').toggle('slow')
     })
-  });
+  })
+    .fail(function (jqxhr, textStatus, error){
+      console.log("Request Failed: ", textStatus, error);
+
+      $("#logo").one('animationiteration webkitAnimationIteration', function () {
+        console.log('report loaded')
+        $("#logo").removeClass('loading');
+        setTimeout(function () {
+          $('#logo').removeClass('small');
+        }, 10)
+      });
+
+      $('.loader').html(`<h3>${icon} 網站維護中，請稍待再來</h3>`)
+    });
   if ($(window).width() > 980){
     $('.band.footer').before(`<section class="band">
         <div class="band-container polis-container">
