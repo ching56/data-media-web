@@ -23,9 +23,10 @@ var media = [
   '東森新聞雲', 
   '中央通訊社', 
   '中國時報',
-  '華視'
+  '華視',
+  '公視', 
 ];
-var mediaEN = ['apple', 'udn', 'liberty', 'ettoday', 'cna', 'china', 'cts'];
+var mediaEN = ['apple', 'udn', 'liberty', 'ettoday', 'cna', 'china', 'cts', 'pts'];
 var smallDesktopWidthSize = 980;
 var mediaColor = {
   '中央通訊社': '#26A69A',
@@ -35,6 +36,7 @@ var mediaColor = {
   '聯合報': '#FF7043',
   '中國時報': '#03A9F4',
   '華視': '#90A4AE',
+  '公視': '#FF8A65',
 };
 var report;
 var provocative_list = []
@@ -48,8 +50,8 @@ var weekNum = tz.format('WW')
 var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
 var reportUrl = s3Url + 'week_' + weekNum + '.json'
 var detailUrl = s3Url + 'detail_' + weekNum + '.json'
-// var reportUrl = 'week_50.json'
-// var detailUrl = 'detail_50.json'
+// var reportUrl = 'week_08.json'
+// var detailUrl = 'detail_08.json'
 let section = -1
 
 $('.page-container').hide()
@@ -67,6 +69,7 @@ function mediaNameTranslate(mediaName) {
     'cna': '中央通訊社',
     'china': '中國時報',
     'cts': '華視',
+    'pts': '公視',
     '蘋果日報': 'apple',
     '聯合報': 'udn',
     '自由時報': 'liberty',
@@ -74,6 +77,7 @@ function mediaNameTranslate(mediaName) {
     '中央通訊社': 'cna',
     '中國時報': 'china',
     '華視': 'cts',
+    '公視': 'pts',
   };
 
   return dict[mediaName];
