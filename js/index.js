@@ -47,11 +47,9 @@ var now = moment.now();
 var tz = moment.tz(now, 'Asia/Taipei').subtract(1, 'days')
 var weekNum = tz.format('WW')
 
-var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/tw-media-data/report/'
-var reportUrl = s3Url + 'week_' + weekNum + '.json'
-var detailUrl = s3Url + 'detail_' + weekNum + '.json'
-// var reportUrl = 'week_08.json'
-// var detailUrl = 'detail_08.json'
+var s3Url = 'https://s3-ap-northeast-1.amazonaws.com/minedia/'
+var reportUrl = s3Url + 'week.json'
+var detailUrl = s3Url + 'detail.json'
 let section = -1
 
 $('.page-container').hide()
